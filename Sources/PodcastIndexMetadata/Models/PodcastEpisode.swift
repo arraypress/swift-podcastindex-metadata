@@ -94,10 +94,4 @@ public struct PodcastEpisode: Sendable, Codable, Identifiable {
         self.feedTitle = feedTitle
     }
 
-    /// A human-readable duration like `"1:02:03"` or `"12:07"`, or `nil`.
-    public var formattedDuration: String? {
-        guard let total = durationInSeconds, total >= 0 else { return nil }
-        let h = total / 3600, m = (total % 3600) / 60, s = total % 60
-        return h > 0 ? String(format: "%d:%02d:%02d", h, m, s) : String(format: "%d:%02d", m, s)
-    }
 }
